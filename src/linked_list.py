@@ -32,6 +32,24 @@ class LinkedList:
             self.end.next_node = end_node
         self.end = end_node
 
+    def to_list(self):
+        """Возращает список с данными, содержащимся в односвязном списке LinkedList"""
+        current_node = self.head
+        result_list = []
+        while current_node:
+            result_list.append(current_node.data)
+            current_node = current_node.next_node
+        return result_list
+
+    def get_data_by_id(self, id_value):
+        """Возращает первый найденый в LinkedList словарь с ключом 'id',
+        значение которого равно переданому в метод значению"""
+        current_node = self.head
+        while current_node:
+            if current_node.data.get('id') == id_value:
+                return current_node.data
+            current_node = current_node.next_node
+
     def __str__(self) -> str:
         """Вывод данных односвязного списка в строковом представлении"""
         node = self.head
